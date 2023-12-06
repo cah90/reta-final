@@ -8,9 +8,6 @@ if (process.env.RENDER) {
 		host: "dpg-cloas3ogqk6s73e5vf60-a",
 		port: 5432,
 		database: "retafinal",
-		ssl: {
-			ca: fs.readFileSync("./ca-certificate.crt"),
-		},
 	}
 } else {
 	config = {
