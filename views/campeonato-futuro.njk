@@ -1,0 +1,42 @@
+{% extends "layout.njk" %}
+
+{% block main %}
+
+<div class="wrapper">
+    <h1>Campeonato Futuro</h1>
+
+  
+      <div class="wrapper__campeonatos">
+      {# <h2>Jogos Futuros</h2> #}
+      <table>
+        <thead>
+          <tr>
+            <th>Inicio das Inscrições</th>
+            <th>Término das Inscrições</th>
+            <th>Inicio dos Jogos</th>
+            <th>Término dos Jogos</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{campeonato.inscricao_inicio}}</td>
+            <td>{{campeonato.inscricao_fim}}</td>
+            <td>{{campeonato.jogos_inicio}}</td>
+            <td>{{campeonato.jogos_fim}}</td>
+            <td>
+              {% if campeonato.inscricao_aberta == true %} 
+                <a href="/campeonato/{{campeonato.id}}/inscrever">Inscreva-se</a>
+              {% else %}
+                <p>Inscrições Fechadas</p>
+              {% endif %}
+            </td>
+          </tr> 
+        </tbody>
+      </table>
+    </div> {# End of the div wrapper__campeonatos #}
+
+</div> {# End of the div wrapper #}
+  
+  
+{% endblock %}

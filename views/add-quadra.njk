@@ -1,0 +1,31 @@
+{% extends "layout.njk" %}
+
+{% block main %}
+
+<div class="wrapper">
+
+  <div class="wrapper__form">
+    <h1>Nova Quadra</h1>
+
+    <form action="/admin/adicionar-quadra-process" method="POST">
+      <label for="nome">Nome da Quadra</label>
+      <input type="text" id="nome" name="nome">
+
+      <label for="unidade">Selecione a Unidade</label>
+      <select id="unidade" name="unidade_id">
+        <option value="0">Selecione</option>
+        {% for item in items %}
+        <option id="unidade" value="{{item.id}}">{{item.nome}}</option>
+        {% endfor %}
+      </select>
+
+    
+
+      <input class="btn btn--form"type="submit" value="Cadastrar">
+    </form>
+  </div> <!--End wrapper__form -->
+</div> <!--End wrapper -->  
+
+    
+
+{% endblock %}

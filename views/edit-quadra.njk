@@ -1,0 +1,33 @@
+{% extends "layout.njk" %}
+
+{% block main %}
+
+<div class="wrapper">
+
+  <div class="wrapper__form">
+    <h1>Editar Quadra</h1>
+
+    <form action="/admin/edit-quadra-process/{{quadra.id}}" method="POST">
+      <label for="nome">Nome da Quadra</label>
+      <input type="text" id="nome" name="nome" value="{{quadra.nome}}">
+
+      <label for="unidade">Selecione a Unidade</label>
+      <select id="unidade" name="unidade_id">
+        <option value="0">Selecione:</option>
+        {% for unidade in unidades %}
+        {% if quadra.unidade_id == unidade.id %}
+        <option id="unidade" value="{{unidade.id}}" selected>{{unidade.nome}}</option>
+        {% else %}
+        <option id="unidade" value="{{unidade.id}}">{{unidade.nome}}</option>
+        {% endif %}
+        {% endfor %}
+      </select>
+
+    
+
+      <input class="btn btn--form"type="submit" value="Editar">
+    </form>
+  </div> <!--End wrapper__form -->
+</div> <!--End wrapper -->  
+
+{% endblock %}

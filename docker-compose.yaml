@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+
+  db:
+    image: postgres
+    ports:
+      - "5433:5432"
+    restart: always
+    environment:
+       POSTGRES_PASSWORD: "pos123" 
+    volumes:
+      - reta-final-database:/var/lib/postgresql/data/
+
+
+volumes:
+  reta-final-database: 
+    

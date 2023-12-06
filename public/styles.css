@@ -1,0 +1,346 @@
+:root {
+  --orange: #ee6401;
+  --light-orange: #fe8e3d;
+  --blue: #018bee;
+  --gray: #7F7F7F;
+  --light-gray: #ebebeb;
+  --font: #0c1f26;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.8rem;
+  color: var(--font);
+  font-family: 'Work Sans', sans-serif;
+  /* height: 100vh; */
+  background-color: var(--light-gray);
+}
+
+/* HEADER */
+
+header {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+img {
+  width: 70%;
+}
+
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
+  align-items: baseline;
+
+}
+
+nav ul li {
+  margin-right: 15px;
+}
+
+nav ul li a {
+  color: var(--font);
+}
+
+nav ul li a:hover {
+  border-bottom: var(--orange) 2px solid;
+}
+
+nav li:before {
+  content: " | ";
+  margin-right: 10px;
+  color: #16343f;
+  }
+  
+nav li:first-child:before,
+.wrapper__btn:before {
+content: none;
+}
+
+
+/* li:last-child  */
+.wrapper__btn {
+  border: 1px solid var(--orange);
+  border-radius: 10px;
+  background-color: var(--light-orange);
+  padding: 8px 16px;
+} 
+
+.wrapper__btn a:hover {
+  border-bottom: none;
+}
+
+.wrapper__btn a {
+  color: white;
+}
+
+
+.btn a {
+  color: #fff;
+}
+
+.active {
+  border-bottom: var(--orange) 2px solid;
+}
+
+
+
+/* MAIN */
+.wrapper {
+  background-color:white;
+  margin: 20px auto;
+  padding: 40px;
+  width: 1200px;
+  /* height: 1000px; */
+}
+
+.wrapper h1 {
+  font-weight: 500;
+  padding: 20px 0;
+}
+
+.wrapper__nav {
+  padding: 20px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr:nth-of-type(odd) {
+  background: #eee;
+}
+
+table th {
+  background-color: var(--blue);
+  color: #fff;
+  font-weight: 500;
+}
+
+table td, table th {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+table td:last-child {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5px;
+}
+
+.btn {
+  padding: 8px;
+  border: solid #ccc 1px;
+  border-radius: 10px;
+}
+
+#btn--config {
+  background-color: #fff;
+  color: var(--font);
+}
+
+#btn--config:hover {
+  color: var(--orange);
+}
+
+#btn--edit {
+  background-color: #fff;
+  color: var(--font);
+}
+
+#btn--edit:hover {
+  color: var(--orange);
+}
+
+#btn--delete {
+  background-color: #DC3445;
+  color: #fff;
+}
+
+#btn--delete:hover {
+  background-color: #d05662;
+}
+
+/* ADD FORM */
+.wrapper__form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 1.6rem;
+}
+
+input, select {
+  margin-bottom: 20px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid var(--gray);
+  font-size: 2rem;
+}
+
+input:focus {
+  outline: 1px solid var(--blue);
+}
+
+.btn--form {
+  background-color: var(--orange);
+  color: #fff;
+  border: 1px solid var(--orange);
+  cursor: pointer;
+}
+
+.btn--form:hover {
+  background-color: var(--light-orange);
+}
+
+input[type="date"] {
+  font-size: 1.5rem;
+  font-family: 'Work Sans', sans-serif;;
+}
+
+/* PÁGINA CAMPEONATO */
+.championship-info {
+  margin: 20px 0 30px;
+}
+
+.championship-info span {
+  color: var(--orange);
+}
+
+.championship-info h2 {
+  margin-bottom: 5px;
+}
+
+.championship-table {
+  margin-bottom: 30px;
+}
+
+.championship-table h3 {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+/* PÁGINA ADD-TIME */
+.wrapper__form-name {
+  display:flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.info-players {
+  color: var(--gray);
+  font-size:14px;
+}
+
+.wrapper__form-players {
+  padding: 10px 0 30px;
+}
+
+/* PÁGINA TODOS OS CAMPEONATOS */
+.wrapper__campeonatos {
+  margin-top: 25px;
+}
+
+.wrapper__campeonatos h2 {
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.more--details:hover {
+  color: var(--blue);
+}
+
+/* PÁGINA INSCRIÇÃO */
+::placeholder {
+  font-size: 1.5rem;
+}
+
+a.back, a.back:visited, a.back:link {
+  display: block;
+  margin-top: 20px;
+  color: var(--orange);
+}
+
+/* PÁGINA INSCRITOS DE UM TIME */
+.time {
+  margin-left: 20px;
+
+}
+
+.time li {
+  list-style-type: square;
+  padding: 5px;
+}
+
+.label {
+  color: var(--orange);
+}
+
+
+/* MSG DE RETORNO */
+.msg {
+  color: white;
+  padding: 15px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+.msg-sucesso {
+  background-color: var(--light-orange);
+}
+
+.msg-erro {
+  background-color: #DC3445;
+}
+
+/* LOGIN */
+.wrapper__form--login, 
+.wrapper__title {
+  width: 680px;
+  margin: 0 auto;
+}
+
+.wrapper__title {
+  margin-bottom: 10px;
+}
+
+/* FOOTER */
+footer {
+  background-color:white;
+  color: var(--font);
+  text-align: center;
+  padding: 15px;
+  font-size: 1.5rem;
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+}

@@ -1,0 +1,58 @@
+{% extends "layout.njk" %}
+
+{% block main %}
+
+<div class="wrapper">
+
+  <div class="wrapper__form">
+    <h1>Editar Campeonato</h1>
+
+    <form action="/admin/edit-campeonato-process/{{campeonato.id}}" method="POST">
+      <label for="nome">Nome do Campeonato</label>
+      <input type="text" id="nome" name="nome" value="{{campeonato.nome}}">
+
+      <label for="unidade">Selecione a Unidade</label>
+      <select id="unidade" name="unidade_id">
+        <option value="0">Selecione:</option>
+        {% for unidade in unidades %}
+        {% if campeonato.unidade_id == unidade.id %}
+        <option id="unidade" value="{{unidade.id}}" selected>{{unidade.nome}}</option>
+        {% else %}
+        <option id="unidade" value="{{unidade.id}}">{{unidade.nome}}</option>
+        {% endif %}
+        {% endfor %}
+      </select>
+
+      <label for="data_inicio_inscricoes">Data de ínicio das incrições</label>
+      <input type="date" id="data_inicio_inscricoes" name="inscricao_inicio" value="{{campeonato.inscricao_inicio}}">
+
+      <label for="data_fim_inscricoes">Data final das inscrições</label>
+      <input type="date" id="data_fim_inscricoes" name="inscricao_fim" value="{{campeonato.inscricao_fim}}">
+
+      <label for="data_inicio_jogos">Data ínicio dos jogos</label>
+      <input type="date" id="data_inicio_jogos" name="jogos_inicio" value="{{campeonato.jogos_inicio}}">
+
+      <label for="data_fim_jogos">Data final dos jogos</label>
+      <input type="date" id="data_fim_jogos" name="jogos_fim" value="{{campeonato.jogos_fim}}">
+
+      <label for="data_divulgacao">Data da Divulgação</label>
+      <input type="date" id="data_divulgacao" name="divulgacao" value="{{campeonato.divulgacao}}">
+    
+      <label for="status">Status</label>
+      <select id="status" name="status">
+        <option value="0">Selecione:</option>
+        {% for status in statuses %}
+        {% if campeonato.status == status %}
+        <option id="status" value="{{status}}" selected>{{status}}</option>
+        {% else %}
+        <option id="status" value="{{status}}">{{status}}</option>
+        {% endif %}
+        {% endfor %}
+      </select>
+
+      <input class="btn btn--form"type="submit" value="Editar">
+    </form>
+  </div> <!--End wrapper__form -->
+</div> <!--End wrapper -->  
+
+{% endblock %}

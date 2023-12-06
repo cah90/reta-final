@@ -1,0 +1,156 @@
+{% extends "layout.njk" %}
+
+{% block main %}
+
+<div class="wrapper">
+  {% if adicionado_com_sucesso == 1 %}
+    <p class="msg msg-sucesso">Time adicionado com sucesso!</p>
+  {% endif %}
+
+  {% if adicionado_com_sucesso == 0 %}
+    <p class="msg msg-erro">Time não foi adicionado. Tente novamente.</p>
+  {% endif %}
+
+  {% if adicionar_jogo_com_sucesso == 1 %}
+    <p class="msg msg-sucesso">Jogo adicionado com sucesso!</p>
+  {% endif %}
+
+  {% if adicionar_jogo_com_sucesso == 0 %}
+    <p class="msg msg-erro">Jogo não foi adicionado. Tente novamente.</p>
+  {% endif %}
+
+  {% if adicionar_vencedor_com_sucesso == 1 %}
+    <p class="msg msg-sucesso">Vencedores adicionados com sucesso!</p>
+  {% endif %}
+
+  {% if adicionar_vencedor_com_sucesso == 0 %}
+    <p class="msg msg-erro">Vencedores não foram adicionados. Tente novamente.</p>
+  {% endif %}
+
+
+    <h1>Gerenciador de Campeonato</h1>
+
+    <nav class=wrapper__nav>
+      <ul>
+        <li><a id="adicionar-time" href="/admin/config-campeonato/{{campeonato.id}}/add-time">Adicionar Time</a></li>
+        <li><a id="adicionar-jogo" href="/admin/config-campeonato/{{campeonato.id}}/add-jogo">Adicionar Jogo</a></li>
+        <li><a id="adicionar-vencedores" href="/admin/config-campeonato/{{campeonato.id}}/add-vencedores">Adicionar Vencedores</a></li>
+        <li><a id="editar-campeonato" href="/admin/edit-campeonato/{{campeonato.id}}">Editar Campeonato</a></li>
+      </ul>
+    </nav>
+
+    <div class="championship-info">
+      <h2>Campeonato <span>{{campeonato.nome}}</span></h2>
+      <p>Status: <span>{{campeonato.status}}</span></p>
+    </div>
+
+
+
+    <div class="championship-table">
+      <h3>Informações Gerais</h3>
+      <table>
+      <thead>
+        <tr>
+          <th>Nome do Campeonato</th>
+          <th>Unidade</th>
+          <th>Início das Inscrição</th>
+          <th>Término das Inscrição</th>
+          <th>Início dos Jogos</th>
+          <th>Término dos Jogos</th>
+          <th>Início da Divulgação</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>{{campeonato.nome}}</td>
+          <td>{{unidades.nome}}</td>
+          <td>{{campeonato.inscricao_inicio}}</td>
+          <td>{{campeonato.inscricao_fim}}</td>
+          <td>{{campeonato.jogos_inicio}}</td>
+          <td>{{campeonato.jogos_fim}}</td>
+          <td>{{campeonato.divulgacao}}</td>
+        </tr> 
+        
+      </tbody>
+    </table>
+    </div>
+
+    <div class="championship-table">
+      <h3>Times</h3>
+      <table>
+      <thead>
+        <tr>
+          <th>Nome dos Times</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for time in times %}
+        <tr>
+          <td>{{time.nome}}</td>
+        </tr> 
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+
+    <div class="championship-table">
+      <h3>Jogos</h3>
+      <table>
+      <thead>
+        <tr>
+          <th>Time 1</th>
+          <th>Time 2</th>
+          <th>Nº de Rodadas</th>
+          <th>Data do Jogo</th>
+          <th>Horário do Jogo</th>
+          <th>Quadra</th>
+          <th>Ação</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        {% for timeJogo in timesJogos %}
+        <tr>
+          <td>{{timeJogo.t1_nome}}</td>
+          <td>{{timeJogo.t2_nome}}</td>
+          <td>{{timeJogo.rodada}}</td>
+          <td>{{timeJogo.data_jogo}}</td>
+          <td>{{timeJogo.horario_jogo}}</td>
+          <td>{{timeJogo.nome}}</td>
+          <td>
+            <a href="/admin/campeonato/{{campeonato.id}}/jogo/{{timeJogo.id}}/adicionar-placar">Adicionar Placar</a>
+          </td>
+          
+        </tr> 
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+
+    <div class="championship-table">
+      <h3>Vencedores</h3>
+      <table>
+      <thead>
+        <tr>
+          <th>Nome do Vencedor</th>
+          <th>Colocação</th> 
+        </tr>
+      </thead>
+      <tbody>
+        {% for time in times %}
+        <tr>
+          <td>{{time.nome}}</td>
+          <td>{{time.vencedores}}</td>
+        </tr> 
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+
+    
+    
+  </div> {# End of div wrapper #}
+
+  
+{% endblock %}

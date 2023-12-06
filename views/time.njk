@@ -1,0 +1,25 @@
+{% extends "layout.njk" %}
+
+{% block main %}
+
+<div class="wrapper">
+    <h1>Integrantes do Time: <span class="label">{{inscritos[0].nome_time}}</span> </h1>
+
+
+    <ul class="time">
+    {% for inscrito in inscritos %}
+      <li>{{inscrito.nome_inscrito}}</li>
+    {% endfor %}
+    </ul>
+
+    
+      
+      
+      
+
+    
+
+  </div> {# End of div wrapper #}
+
+  
+{% endblock %}

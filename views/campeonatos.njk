@@ -1,0 +1,69 @@
+{% extends "layout.njk" %}
+
+{% block main %}
+
+<div class="wrapper">
+  {% if adicionado_com_sucesso == 1 %}
+    <p class="msg msg-sucesso">Campeonato adicionado com sucesso!</p>
+  {% endif %}
+
+  {% if adicionado_com_sucesso == 0 %}
+    <p class="msg msg-erro">Campeonato não foi adicionado. Tente novamente.</p>
+  {% endif %}
+
+  {% if edit_com_sucesso == 1 %}
+    <p class="msg msg-sucesso">Campeonato editado com sucesso!</p>
+  {% endif %}
+
+  {% if edit_com_sucesso == 0 %}
+    <p class="msg msg-erro">Campeonato não foi editado. Tente novamente.</p>
+  {% endif %}
+
+
+    <h1>Lista de Campeonatos</h1>
+
+    <nav class=wrapper__nav>
+      <ul>
+        {% include "nav.njk" %}
+        <li class="wrapper__btn"><a href="/admin/adicionar-campeonato">Adicionar</a></li>
+      </ul>
+    </nav>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome do Campeonato</th>
+          <th>Unidade</th>
+          <th>Início das Inscrição</th>
+          <th>Término das Inscrição</th>
+          <th>Início dos Jogos</th>
+          <th>Término dos Jogos</th>
+          <th>Início da Divulgação</th>
+          <th>Status</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{item.nome_campeonato}}</td>
+          <td>{{item.nome_unidade}}</td>
+          <td>{{item.inscricao_inicio}}</td>
+          <td>{{item.inscricao_fim}}</td>
+          <td>{{item.jogos_inicio}}</td>
+          <td>{{item.jogos_fim}}</td>
+          <td>{{item.divulgacao}}</td>
+          <td>{{item.status}}</td>
+          <td>
+          <a href="/admin/config-campeonato/{{item.id}}"><i id="btn--config" class="fas fa-tools btn"></i></a>
+          <a href="/admin/edit-campeonato/{{item.id}}"><i id="btn--edit" class="fas fa-pencil-alt btn"></i></a>
+          <a href="/admin/delete-campeonato/{{item.id}}"><i id="btn--delete" class="fa-solid fa-trash-can btn"></i></a>
+          </td>
+        </tr> 
+        {% endfor %}
+      
+      </tbody>
+    </table>
+</div>
+  
+{% endblock %}

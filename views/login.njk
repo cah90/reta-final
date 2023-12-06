@@ -1,0 +1,21 @@
+{% extends "layout.njk" %}
+
+
+{% block main %}
+
+
+<div class="wrapper">
+  <h1 class="wrapper__title">Faça seu Login</h1>
+
+  <form class="wrapper__form--login" action="/admin/login" method="POST">
+      <label for="login">User</label>
+      <input type="text" id="login" name="login">
+
+      <label for="password">Senha</label>
+      <input type="password" id="password" name="password">
+
+      <input class="btn btn--form"type="submit" value="Entrar">
+    </form>
+</div>
+  
+{% endblock %}

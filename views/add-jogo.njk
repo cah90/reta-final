@@ -1,0 +1,60 @@
+{% extends "layout.njk" %}
+
+{% block main %}
+
+<div class="wrapper">
+    <h1>Adicionar Novo Jogo</h1>
+
+    <div class="wrapper__form">
+    
+    <form action="/admin/config-campeonato/{{campeonato_id}}/add-jogo" method="POST">
+      
+      <p>
+        Selecione os times:
+        <span class="info-players">(selecione 2 times)</span>
+      </p>
+
+      <div class="wrapper__form-name">
+        {% for time in times %}
+        <div class="wrapper__form-player">
+          <input type="checkbox" id="time" name="time[]" value="{{time.id}}">
+          <label for="time">{{time.nome}}</label>
+        </div>
+        {% endfor %}
+      </div>
+
+      <label for="rodada">Número de Rodadas</label>
+      <input type="number" id="rodada" name="rodada">
+    
+      <label for="data_inicio_campeonato">Data do Jogo</label>
+      <input type="date" id="data_inicio_campeonato" name="data_inicio_campeonato">
+
+      <label for="horario_campeonato">Horário do Jogo</label>
+      <input type="time" id="horario_campeonato" name="horario_campeonato">
+
+      <label for="quadra">Selecione a Quadra</label>
+      <select id="quadra" name="quadra_id">
+        <option value="0">Selecione</option>
+        {% for quadra in quadras %}
+        <option id="quadra" value="{{quadra.id}}">{{quadra.nome}}</option>
+        {% endfor %}
+      </select>
+      
+
+      
+      
+      
+
+    
+
+      <input class="btn btn--form" type="submit" value="Cadastrar">
+    </form>
+      
+
+    
+    
+    </div> {# End of div wrapper__form #}
+  </div> {# End of div wrapper #}
+
+  
+{% endblock %}

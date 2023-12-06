@@ -1,0 +1,30 @@
+{% extends "layout.njk" %}
+
+{% block main %}
+
+<div class="wrapper">
+
+  <div class="wrapper__form">
+    <h1>Formulário de Inscrição</h1>
+
+    <form action="/campeonato/{{campeonato_id}}/adicionar-inscrito" method="POST">
+      <label for="nome">Nome Completo</label>
+      <input type="text" id="nome" name="nome" placeholder="Ex: Renato da Silva">
+
+      <label for="apelido">Apelido</label>
+      <input type="text" id="apelido" name="apelido" placeholder="Ex: Renatinho">
+
+      <label for="whatsapp">WhatsApp</label>
+      <input type="text" id="whatsapp" name="whatsapp" placeholder="Ex: 12345-6789">
+
+      <label for="data_nascimento">Data de Nascimento</label>
+      <input type="date" id="data_nascimento" name="data_nascimento">
+
+      <input class="btn btn--form"type="submit" value="Cadastrar">
+    </form>
+  </div> <!--End wrapper__form -->
+</div> <!--End wrapper -->  
+
+    
+
+{% endblock %}

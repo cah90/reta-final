@@ -1,0 +1,27 @@
+{% extends "layout.njk" %}
+
+{% block main %}
+
+<div class="wrapper">
+
+  <div class="wrapper__form">
+    <h1>Adicionar Placar</h1>
+
+    <form action="/admin/campeonato/{{campeonato_id}}/jogo/{{jogo_id}}/adicionar-placar" method="POST">
+
+      <label for="score_time1">Time 1: <strong>{{times.time1}}</strong> </label>
+      <input type="number" id="score_time1" name="time1_placar" placeholder="Ex: 3">
+
+      <label for="score_time2">Time 2: <strong>{{times.time2}}</strong> </label>
+      <input type="number" id="score_time2" name="time2_placar" placeholder="Ex: 2">
+
+    
+
+      <input class="btn btn--form"type="submit" value="Adicionar">
+    </form>
+  </div> <!--End wrapper__form -->
+</div> <!--End wrapper -->  
+
+    
+
+{% endblock %}

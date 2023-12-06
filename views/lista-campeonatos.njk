@@ -1,0 +1,107 @@
+{% extends "layout.njk" %}
+
+{% block main %}
+
+<div class="wrapper">
+  <h1>Todos os Campeonatos</h1>
+
+  
+  <div class="wrapper__campeonatos">
+        <h2>Campeonatos em Andamento</h2>
+        <table>
+        <thead>
+          <tr>
+            <th>Nome do Campeonato</th>
+            <th>Unidade</th>
+            <th>Início das Inscrição</th>
+            <th>Término das Inscrição</th>
+            <th>Início dos Jogos</th>
+            <th>Término dos Jogos</th>
+            <th>Mais Informações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in campeonatosAndamento %}
+          <tr>
+            <td>{{item.nome}}</td>
+            <td>{{item.nome_unidade}}</td>
+            <td>{{item.inscricao_inicio}}</td>
+            <td>{{item.inscricao_fim}}</td>
+            <td>{{item.jogos_inicio}}</td>
+            <td>{{item.jogos_fim}}</td>
+            <td>
+            <a class="more--details" href="/campeonato/{{item.id}}/andamento">Mais detalhes</a>
+            </td>
+          </tr> 
+          {% endfor %}
+        </tbody>
+      </table>
+  </div> {# End of the div wrapper__campeonatos #}
+
+  <div class="wrapper__campeonatos">
+    <h2>Campeonatos Futuros</h2>
+    <table>
+    <thead>
+      <tr>
+        <th>Nome do Campeonato</th>
+        <th>Unidade</th>
+        <th>Início das Inscrição</th>
+        <th>Término das Inscrição</th>
+        <th>Início dos Jogos</th>
+        <th>Término dos Jogos</th>
+        <th>Mais Informações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in campeonatosFuturo %}
+      <tr>
+        <td>{{item.nome}}</td>
+        <td>{{item.nome_unidade}}</td>
+        <td>{{item.inscricao_inicio}}</td>
+        <td>{{item.inscricao_fim}}</td>
+        <td>{{item.jogos_inicio}}</td>
+        <td>{{item.jogos_fim}}</td>
+        <td>
+        <a class="more--details" href="/campeonato/{{item.id}}/futuro">Mais detalhes</a>
+        </td>
+      </tr> 
+      {% endfor %}
+      </tbody>
+    </table>
+  </div> {# End of the div wrapper__campeonatos #}
+
+  <div class="wrapper__campeonatos">
+      <h2>Campeonatos Terminados</h2>
+      <table>
+      <thead>
+        <tr>
+          <th>Nome do Campeonato</th>
+          <th>Unidade</th>
+          <th>Início das Inscrição</th>
+          <th>Término das Inscrição</th>
+          <th>Início dos Jogos</th>
+          <th>Término dos Jogos</th>
+          <th>Mais Informações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in campeonatosPassado %}
+        <tr>
+          <td>{{item.nome}}</td>
+          <td>{{item.nome_unidade}}</td>
+          <td>{{item.inscricao_inicio}}</td>
+          <td>{{item.inscricao_fim}}</td>
+          <td>{{item.jogos_inicio}}</td>
+          <td>{{item.jogos_fim}}</td>
+          <td>
+          <a class="more--details" href="/campeonato/{{item.id}}/terminado">Mais detalhes</a>
+          </td>
+        </tr> 
+        {% endfor %}
+      </tbody>
+    </table>
+  </div> {# End of the div wrapper__campeonatos #}
+
+</div> {# End of the div wrapper #}
+  
+{% endblock %}

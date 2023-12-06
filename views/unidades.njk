@@ -1,0 +1,59 @@
+{% extends "layout.njk" %}
+
+
+{% block main %}
+
+
+<div class="wrapper">
+  {% if adicionado_com_sucesso == 1 %}
+    <p class="msg msg-sucesso">Unidade adicionada com sucesso!</p>
+  {% endif %}
+
+  {% if adicionado_com_sucesso == 0 %}
+    <p class="msg msg-erro">Unidade não foi adicionada. Tente novamente.</p>
+  {% endif %}
+  
+    <h1>Lista de Unidades</h1>
+
+    <nav class=wrapper__nav>
+      <ul>
+        {% include "nav.njk" %}
+        <li class="wrapper__btn"><a href="/admin/adicionar-unidade">Adicionar</a></li>
+      </ul>
+    </nav>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Endereço</th>
+          <th>Número</th>
+          <th>Complemento</th>
+          <th>CEP</th>
+          <th>Cidade</th>
+          <th>Estado</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{item.nome}}</td>
+          <td>{{item.endereco}}</td>
+          <td>{{item.numero}}</td>
+          <td>{{item.complemento}}</td>
+          <td>{{item.cep}}</td>
+          <td>{{item.cidade}}</td>
+          <td>{{item.estado}}</td>
+          <td>
+          <a href="/admin/edit-unidade/{{item.id}}"><i id="btn--edit" class="fas fa-pencil-alt btn"></i></a>
+          <a href="/admin/delete-unidade/{{item.id}}"><i id="btn--delete" class="fa-solid fa-trash-can btn"></i></a>
+          </td>
+        </tr> 
+        {% endfor %}
+      
+      </tbody>
+    </table>
+</div>
+  
+{% endblock %}

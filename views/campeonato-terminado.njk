@@ -1,0 +1,62 @@
+{% extends "layout.njk" %}
+
+{% block main %}
+
+<div class="wrapper">
+    <h1>Campeonato Terminado</h1>
+
+  
+      <div class="wrapper__campeonatos">
+      <h2>Colocações</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Times</th>
+            <th>Colocação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for vencedor in vencedores %}
+          <tr>
+            <td>{{vencedor.nome}}</td>
+            <td>{{vencedor.vencedores}}</td>
+          </tr> 
+          {% endfor %}
+        </tbody>
+      </table>
+    </div> {# End of the div wrapper__campeonatos #}
+
+<div class="wrapper__campeonatos">
+        <h2>Jogos Terminados</h2>
+        <table>
+        <thead>
+          <tr>
+            <th>Nome do Time A</th>
+            <th>Nome do Time B</th>
+            <th>Placar do Jogo</th>
+            <th>Data</th>
+            <th>Horário</th>
+            <th>Quadra</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in jogosTerminados %}
+          <tr>
+            <td><a href="/campeonato/{{campeonatoId}}/time/{{item.id_t1}}">{{item.nome_t1}}</a></td>
+            <td><a href="/campeonato/{{campeonatoId}}/time/{{item.id_t2}}">{{item.nome_t2}}</a></td>
+            <td>{{item.time1_placar}} x {{item.time2_placar}}</td>
+            <td>{{item.data_jogo}}</td>
+            <td>{{item.horario_jogo}}</td>
+            <td>{{item.quadra}}</td>
+          </tr> 
+          {% endfor %}
+        </tbody>
+      </table>
+      </div> {# End of the div wrapper__campeonatos #}
+
+       
+  
+    
+</div> {# End of the div wrapper #}
+  
+{% endblock %}

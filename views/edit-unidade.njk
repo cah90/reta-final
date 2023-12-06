@@ -1,0 +1,40 @@
+{% extends "layout.njk" %}
+
+{% block main %}
+
+<div class="wrapper">
+
+  <div class="wrapper__form">
+    <h1>Editar Unidade</h1>
+
+    <form action="/admin/edit-unidade-process/{{id}}" method="POST">
+    
+      <label for="nome">Nome da Unidade</label>
+      <input type="text" id="nome" name="nome" value="{{nome}}">
+
+      <label for="endereco">Endereço</label>
+      <input type="text" id="endereco" name="endereco" value="{{endereco}}">
+
+      <label for="numero">Número</label>
+      <input type="text" id="numero" name="numero" value="{{numero}}">
+
+      <label for="complemento">Complemento</label>
+      <input type="text" id="complemento" name="complemento" value="{{complemento}}">
+
+      <label for="cep">CEP</label>
+      <input type="text" id="cep" name="cep" value="{{cep}}">
+
+      <label for="cidade">Cidade</label>
+      <input type="text" id="cidade" name="cidade" value="{{cidade}}">
+
+      <label for="estado">Estado</label>
+      <input type="text" id="estado" name="estado" value="{{estado}}">
+
+      <input class="btn btn--form"type="submit" value="Editar">
+    </form>
+  </div> <!--End wrapper__form -->
+</div> <!--End wrapper -->  
+
+    
+
+{% endblock %}

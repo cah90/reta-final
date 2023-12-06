@@ -1,0 +1,43 @@
+{% extends "layout.njk" %}
+
+{% block main %}
+
+<div class="wrapper">
+
+  <div class="wrapper__form">
+    <h1>Adicionar Vencedores</h1>
+
+    <form action="/admin/config-campeonato/{{campeonato}}/add-vencedores" method="POST">
+      
+      <label for="vencedor">Selecione o time em 1º lugar:</label>
+      <select id="vencedor" name="primeiro_lugar">
+        <option value="0">Selecione</option>
+        {% for item in items %}
+        <option id="vencedor" value="{{item.id}}">{{item.nome}}</option>
+        {% endfor %}
+      </select>
+
+      <label for="vencedor">Selecione o time em 2º lugar:</label>
+      <select id="vencedor" name="segundo_lugar">
+        <option value="0">Selecione</option>
+        {% for item in items %}
+        <option id="vencedor" value="{{item.id}}">{{item.nome}}</option>
+        {% endfor %}
+      </select>
+
+      <label for="vencedor">Selecione o time em 3º lugar:</label>
+      <select id="vencedor" name="terceiro_lugar">
+        <option value="0">Selecione</option>
+        {% for item in items %}
+        <option id="vencedor" value="{{item.id}}">{{item.nome}}</option>
+        {% endfor %}
+      </select>
+
+      <input class="btn btn--form"type="submit" value="Adicionar">
+    </form>
+  </div> <!--End wrapper__form -->
+</div> <!--End wrapper -->  
+
+    
+
+{% endblock %}
