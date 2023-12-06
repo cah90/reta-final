@@ -1,7 +1,7 @@
 const { Pool } = require("pg")
 const fs = require("fs")
 
-if (process.env.DYNO) {
+if (process.env.RENDER) {
 	config = {
 		user: "retafinaluser",
 		password: "T7j5ayM4sivyJFrY3VPVKWlSrcRBzueQ",
