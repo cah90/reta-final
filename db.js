@@ -4,9 +4,9 @@ const fs = require("fs")
 if (process.env.DYNO) {
 	config = {
 		user: "retafinaluser",
-		password: "yRdiiGcOJs40*4&P8y#i",
-		host: "reta-final-do-user-5039535-0.b.db.ondigitalocean.com",
-		port: 25060,
+		password: "T7j5ayM4sivyJFrY3VPVKWlSrcRBzueQ",
+		host: "dpg-cloas3ogqk6s73e5vf60-a",
+		port: 5432,
 		database: "retafinal",
 		ssl: {
 			ca: fs.readFileSync("./ca-certificate.crt"),
